@@ -1,8 +1,6 @@
-
-
 using UnityEngine;
 
-public class Mover : MonoBehaviour
+public class Mover2 : MonoBehaviour
 {
 
     void Start()
@@ -13,7 +11,7 @@ public class Mover : MonoBehaviour
 
     void move_up(float speed)
     {
-        transform.Translate(Vector3.up * speed * Time.deltaTime);
+        GetComponent<Rigidbody>().AddForce(Vector3.up * speed);
         Debug.Log("Moving up with speed: " + speed);
     }
 
@@ -42,21 +40,21 @@ public class Mover : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.Space))
         {
-            move_up(5f);
+            move_up(20f);
         }
-        if (Input.GetKey(KeyCode.W))
+        if (Input.GetKey(KeyCode.UpArrow))
         {
             move_forward(5f);
         }
-        if (Input.GetKey(KeyCode.D))
+        if (Input.GetKey(KeyCode.RightArrow))
         {
             move_right(5f);
         }
-        if (Input.GetKey(KeyCode.A))
+        if (Input.GetKey(KeyCode.LeftArrow))
         {
             move_left(5f);
         }
-        if (Input.GetKey(KeyCode.S))
+        if (Input.GetKey(KeyCode.DownArrow))
         {
             move_backward(5f);
         }
